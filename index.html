@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // let iniMonedaOrigen = '';
+        // let iniMonedaDestino = '';
+
+        function EnviarDatosDesdeFMaJS(FMIniMonedaOrigen, FMIniMonedaDestino){
+            // iniMonedaOrigen = FMIniMonedaOrigen;
+            // iniMonedaDestino = FMIniMonedaDestino
+            LlamadaAPI(FMIniMonedaOrigen, FMIniMonedaDestino)
+        }
+
+        async function LlamadaAPI(FMIniMonedaOrigen, FMIniMonedaDestino){
+            let url = `https://api.exchangeratesapi.io/latest?base${FMIniMonedaOrigen}`
+            let res = await fetch(url);
+            let data = await res.json()
+
+            let valorDelCambio = data.rates[FMIniMonedaDestino]
+            let valor = twoDigit(valorDelCambio)
+
+            EnviarDatosDesdeJSaFM(valor)
+        }
+
+          function  EnviarDatosDesdeJSaFM(valor){
+                let param = `JS 
+                ${valor}
+                `
+                FileMaker.PerformScript("ConvertirMoneda", param)
+            }
+
+        function twoDigit(num){
+            return Number.parseFloat(num).toFixed(2)
+        }
+
+    </script>
+</body>
+</html>
