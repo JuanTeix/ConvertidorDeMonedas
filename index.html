@@ -18,7 +18,9 @@
         }
 
         async function LlamadaAPI(FMIniMonedaOrigen, FMIniMonedaDestino){
-            let url = `https://api.exchangeratesapi.io/latest?base${FMIniMonedaOrigen}`
+            const API_KEY = "Key"
+            let url = `http://api.exchangeratesapi.io/v1/latest?access_key=${API_KEY}&symbols=${FMIniMonedaDestino}`
+            // let url = `https://api.exchangeratesapi.io/latest?base${FMIniMonedaOrigen}`
             let res = await fetch(url);
             let data = await res.json()
 
