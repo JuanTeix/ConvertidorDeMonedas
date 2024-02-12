@@ -16,7 +16,7 @@ https://www.youtube.com/watch?v=bgZLHM6v47Y&t=5s
 ## Construido con 🛠️
 
 * [FileMaker](https://www.claris.com/) - Herramienta de desarrollo.
-* [JavaScrip](https://www.javascript.com/) - Para hacer las llamadas a la API.
+* [JavaScript](https://www.javascript.com/) - Para hacer las llamadas a la API.
 * [Exchange Rates API](http://exchangeratesapi.io/) - API.
 
 ---
